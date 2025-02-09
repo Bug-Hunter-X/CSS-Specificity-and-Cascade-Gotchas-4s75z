@@ -1,0 +1,14 @@
+The CSS specificity rules can sometimes lead to unexpected behavior when styles from different selectors conflict.  For instance, consider this:
+
+```css
+div p { color: blue; }
+.special p { color: red; }
+
+<div>
+  <p class="special">This text should be red.</p>
+</div>
+```
+
+While you might expect the `color: red;` to override `color: blue;` due to the class selector's higher specificity, it will not always behave as expected due to how the browser calculates specificity. A common unexpected behavior is an inherited selector unintentionally overriding a more specific selector.
+
+Another issue involves the cascade.  If styles are applied in a less-than-obvious order (perhaps due to inheritance or the order of stylesheets), the result might not match expectations.  Rules defined later can override earlier rules. This is the core of CSS's cascading nature, and it can lead to hard-to-debug scenarios.
