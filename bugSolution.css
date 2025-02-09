@@ -1,0 +1,16 @@
+To address these CSS specificity and cascade issues, it's recommended to:
+
+1. **Use more specific selectors:** Instead of relying on general selectors (like `div p`), utilize more precise selectors that target the specific HTML elements you want to style.  For example, if you only want to style paragraphs within a div with a specific class, then use the ID selector or other more specific selectors.
+2. **Organize your CSS:** Ensure that your CSS is well-organized and that the most specific styles are defined last. This helps to ensure that the intended styles are applied correctly.
+3. **Use the `!important` flag sparingly:** While `!important` can override specificity, it's generally best avoided as it can make your CSS harder to maintain and debug. It should be the last resort in resolving overriding style issues.
+
+Here is the updated CSS in `bugSolution.css`:
+
+```css
+div #myParagraph { color: blue; }
+.special p { color: red; }
+
+/*Now applying more specific selectors and using ids to resolve any issues*/
+```
+
+By making the selectors more specific, the expected styles are applied correctly.  Note that this improved approach focuses on cleaner, more maintainable CSS, reducing reliance on CSS overrides.
